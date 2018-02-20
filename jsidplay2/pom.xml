@@ -167,6 +167,20 @@
 		</dependency>
 	</dependencies>
 
+
+
+	<profiles>
+		<profile>
+			<id>java8-doclint-disabled</id>
+			<activation>
+				<jdk>[1.8,)</jdk>
+			</activation>
+			<properties>
+				<javadoc.opts>-Xdoclint:none</javadoc.opts>
+			</properties>
+		</profile>
+	</profiles>
+
 	<build>
 		<extensions>
 			<extension>
@@ -287,6 +301,7 @@
 							<nonavbar>true</nonavbar>
 							<quiet>true</quiet>
 							<failOnError>true</failOnError>
+							<additionalparam>${javadoc.opts}</additionalparam>
 						</configuration>
 					</execution>
 				</executions>
